@@ -1,7 +1,11 @@
 import React from 'react';
 import Offer from '../../components/offer/offer';
 
-function MainScreen(): JSX.Element {
+type MainScreenProps = {
+  offersCount: number;
+};
+
+function MainScreen({ offersCount }: MainScreenProps): JSX.Element {
   return (
     <React.Fragment>
       <div style={{ display: 'none' }}>
@@ -97,7 +101,7 @@ function MainScreen(): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  {Array.from({ length: 5 }, () => <Offer />)}
+                  {Array.from({ length: offersCount }, () => <Offer />)}
                 </div>
               </section>
               <div className="cities__right-section">

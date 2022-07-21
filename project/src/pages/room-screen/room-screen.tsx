@@ -9,7 +9,8 @@ type RoomScreenProps = {
 
 function RoomScreen({ offers }: RoomScreenProps): JSX.Element {
   const params = useParams();
-
+  // eslint-disable-next-line no-console
+  console.log(params);
   return (
     < React.Fragment >
       <div style={{ display: 'none' }}>

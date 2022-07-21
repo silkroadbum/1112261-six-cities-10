@@ -1,5 +1,4 @@
 import React from 'react';
-import Offer from '../../components/offer/offer';
 import Logo from '../../components/logo/logo';
 
 type MainScreenProps = {
@@ -100,7 +99,7 @@ function MainScreen({ offersCount }: MainScreenProps): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  {Array.from({ length: offersCount }, () => <Offer />)}
+
                 </div>
               </section>
               <div className="cities__right-section">

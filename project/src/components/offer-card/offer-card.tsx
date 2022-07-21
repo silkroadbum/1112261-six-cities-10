@@ -7,6 +7,7 @@ type OfferCardProps = {
 function OfferCard({ offer }: OfferCardProps): JSX.Element {
   const { isPremium, isFavorite, previewImage, price, rating, type, title } = offer;
   const ratingPercent = 100 / 5 * rating;
+  const formatedType = type[0].toUpperCase() + type.slice(1);
 
   return (
     <article className="cities__card place-card">
@@ -41,7 +42,7 @@ function OfferCard({ offer }: OfferCardProps): JSX.Element {
         <h2 className="place-card__name">
           <a href="/">{title}</a>
         </h2>
-        <p className="place-card__type">{type[0].toUpperCase + type.slice(1)}</p>
+        <p className="place-card__type">{formatedType}</p>
       </div>
     </article>
   );

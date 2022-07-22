@@ -2,15 +2,16 @@ import Offer from '../../types/offer';
 
 type OfferCardProps = {
   offer: Offer;
+  onMouseOver: () => void;
 };
 
-function OfferCard({ offer }: OfferCardProps): JSX.Element {
+function OfferCard({ offer, onMouseOver }: OfferCardProps): JSX.Element {
   const { isPremium, isFavorite, previewImage, price, rating, type, title } = offer;
   const ratingPercent = 100 / 5 * rating;
   const formatedType = type[0].toUpperCase() + type.slice(1);
 
   return (
-    <article className="cities__card place-card">
+    <article className="cities__card place-card" onMouseOver={onMouseOver}>
       {isPremium ?
         <div className="place-card__mark">
           <span>Premium</span>

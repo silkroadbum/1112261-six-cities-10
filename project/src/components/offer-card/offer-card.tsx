@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Offer from '../../types/offer';
 
 type OfferCardProps = {
@@ -6,7 +7,7 @@ type OfferCardProps = {
 };
 
 function OfferCard({ offer, onMouseOver }: OfferCardProps): JSX.Element {
-  const { isPremium, isFavorite, previewImage, price, rating, type, title } = offer;
+  const { isPremium, isFavorite, previewImage, price, rating, type, title, id } = offer;
   const ratingPercent = 100 / 5 * rating;
   const formatedType = type[0].toUpperCase() + type.slice(1);
 
@@ -17,9 +18,9 @@ function OfferCard({ offer, onMouseOver }: OfferCardProps): JSX.Element {
           <span>Premium</span>
         </div> : ''}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="/">
+        <Link to={`/offer/:${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt={type} />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -41,11 +42,11 @@ function OfferCard({ offer, onMouseOver }: OfferCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/">{title}</a>
+          <Link to={`/offer/:${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{formatedType}</p>
       </div>
-    </article>
+    </article >
   );
 }
 
